@@ -1,0 +1,44 @@
+#include<stdio.h>
+#define N 5
+
+void array(int arr[N],int n);
+int palind(int arr[],int size);
+int main()
+{
+    int num;
+    int ar[N];
+    printf("Enter a number: ");scanf("%d",&num);
+
+    array(ar,num);
+
+    if(palind(ar,N))
+        printf("Palindrome");
+
+    else
+        printf("Not");
+
+
+}
+
+void array(int arr[N],int n)
+{
+    int i;
+    for(i=0; i<N && n>0; i++)
+    {
+        arr[i]=n%10;
+        n/=10;
+    }
+}
+
+int palind(int arr[],int size)
+{
+    size=N;
+    int i;
+    for(i=0; i<size; i++){
+        if(arr[i]!=arr[N])
+            return 0;
+        size--;
+    }
+
+    return 1;
+}
